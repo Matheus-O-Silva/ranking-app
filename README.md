@@ -78,4 +78,4 @@ sail artisan db:seed --class=ChannelSeeder
 sail artisan db:seed --class=WatchedTimeSeeder
 ```
 ### Acesse o ranking pela endpoint abaixo:
-[http://localhost:8888](http://localhost:8888)
+[http://localhost:8888/ranking](http://localhost:8888/ranking)
