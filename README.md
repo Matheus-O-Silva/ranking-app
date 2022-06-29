@@ -21,7 +21,6 @@ Crie o Arquivo .env
 cp .env.example .env
 ```
 
-
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
 APP_NAME=EspecializaTi
@@ -42,7 +41,22 @@ REDIS_HOST=redis
 REDIS_PASSWORD=null
 REDIS_PORT=6379
 ```
-Suba os containers do projeto
+### Acessando o banco 
+Para acessar o banco utilizando algum gerenciador, utilize a configuração abaixo:
+```sh
+Hostname: localhost
+```
+```sh
+Port: 3388
+```
+```sh
+User: sail
+```
+```sh
+Password: password
+```
+### Subindo os containers do projeto
+
 ```sh
 vendor/bin/sail up -d
 ```
