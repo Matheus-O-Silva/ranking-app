@@ -2,6 +2,7 @@
 
 ## Requisitos:
 -  Docker
+-  Git
 
 ## Subir a API
 Para testar o projeto, siga os passos descritos abaixo
