@@ -63,19 +63,19 @@ vendor/bin/sail up -d
 
 Gerar a key do projeto Laravel
 ```sh
-sail artisan key:generate
+vendor/bin/sail artisan key:generate
 ```
 
 Rode as migrations abaixo para criar a estrutura do banco
 ```sh
-sail artisan migrate
+vendor/bin/sail artisan migrate
 ```
 
 Rode os comandos abaixo para popular as tabelas do banco
 ```sh
-sail artisan db:seed --class=UserSeeder
-sail artisan db:seed --class=ChannelSeeder
-sail artisan db:seed --class=WatchedTimeSeeder
+vendor/bin/sail artisan db:seed --class=UserSeeder
+vendor/bin/sail artisan db:seed --class=ChannelSeeder
+vendor/bin/sail artisan db:seed --class=WatchedTimeSeeder
 ```
 ### Acesse o ranking pela endpoint abaixo:
 [http://localhost:8888/ranking](http://localhost:8888/ranking)
