@@ -72,7 +72,7 @@ Rode as migrations abaixo para criar a estrutura do banco
 vendor/bin/sail artisan migrate
 ```
 
-Rode os comandos abaixo para popular as tabelas do banco
+Rode os comandos abaixo para popular as tabelas do banco:
 ```sh
 vendor/bin/sail artisan db:seed --class=UserSeeder
 vendor/bin/sail artisan db:seed --class=ChannelSeeder
@@ -81,7 +81,7 @@ vendor/bin/sail artisan db:seed --class=WatchedTimeSeeder
 ### Acesse o Ranking Agrupado por canais pelo endpoint:
 [http://localhost:8888/channels-ranking](http://localhost:8888/channels-ranking)
 
-### Acesse o ornado por Usuários pelo endpoint:
+### Acesse o Ranking ordenado por Usuários pelo endpoint:
 [http://localhost:8888/users-ranking](http://localhost:8888/users-ranking)
 
 ### A posição no Ranking de cada usuário está no campo 'place' dos objetos retornados
