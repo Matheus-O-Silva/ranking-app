@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use \Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Services\ChannelService;
+use App\Services\WatchedTimeService;
 
 /**
  * Exibe ranking de tempo assistido por Canais
@@ -14,25 +14,32 @@ use App\Services\ChannelService;
  * @throws \Illuminate\Database\QueryException $e
  * @return \Illuminate\Http\JsonResponse
  */
-class ChannelController extends Controller
+class WatchedTimeController extends Controller
 {
 
-    protected $channelService;
+    protected $watchedTimeService;
 
     /**
      * Cria uma intancia do service
      *
      * @param \App\Services\ChannelService  $channelService
      */
-    public function __construct(ChannelService $channelService)
+    public function __construct(WatchedTimeService $watchedTimeService)
     {
-        $this->channelService = $channelService;
+        $this->watchedTimeService = $watchedTimeService;
     }
 
+    /**
+     * Exibe ranking de tempo assistido ordenado por record de minutos de Usuários
+     *
+     * @throws Exception $e
+     * @throws \Illuminate\Database\QueryException $e
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index() : JsonResponse
     {   
         try {
-            return response()->json($this->channelService->getRankingByChannel(),200);
+            return response()->json($this->watchedTimeService->getRankingByUsers(),200);
         } catch (Exception $e) {
             return response()->json($e->getMessage());
         } catch (QueryException $e) {

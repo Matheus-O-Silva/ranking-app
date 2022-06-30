@@ -28,7 +28,7 @@ class ChannelService
             });
             
             //Inclui posição do usuário no ranking   
-            $i = 1;//Quantidade de posições                           
+            $i = 1;                       
             foreach($channels[$key]['watched_times'] as $watchedKey => $value){
                 if(intval($watchedKey) !== 0){
                     if($channels[$key]['watched_times'][$watchedKey]['minutes'] < $channels[$key]['watched_times'][$watchedKey - 1]['minutes']){
