@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use \Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Channel;
+use App\Services\ChannelService;
 
 /**
  * Exibe ranking de tempo assistido por Canais
@@ -16,30 +17,27 @@ use App\Models\Channel;
  */
 class ChannelController extends Controller
 {
+
+    protected $channelService;
+
+    /**
+     * Cria uma intancia do service
+     *
+     * @param \App\Services\ChannelService  $channelService
+     */
+    public function __construct(ChannelService $channelService)
+    {
+        $this->channelService = $channelService;
+    }
+
     public function index() : JsonResponse
     {   
-        
-        $channels = Channel::with('WatchedTimes.user')->get()->toArray();
-        
-        foreach($channels as $key => $value){
-            //Ordena do maior colocado para o menor 
-            usort($channels[$key]['watched_times'], function($a, $b) {
-                return $a['minutes'] < $b['minutes'];
-            });
-            
-            //Inclui posição do usuário no ranking   
-            $i = 1;//Quantidade de posições                           
-            foreach($channels[$key]['watched_times'] as $watchedKey => $value){
-                if(intval($watchedKey) !== 0){
-                    if($channels[$key]['watched_times'][$watchedKey]['minutes'] < $channels[$key]['watched_times'][$watchedKey - 1]['minutes']){
-                        $i++;
-                    }
-                }
-
-                $channels[$key]['watched_times'][$watchedKey]['place'] = $i;               
-            }                                          
+        try {
+            return response()->json($this->channelService->getRankingByChannel(),200);
+        } catch (Exception $e) {
+            return response()->json($e->getMessage());
+        } catch (QueryException $e) {
+            return response()->json($e->getMessage(), 500);
         }
-        
-        return response()->json($channels,200);
     }
 }
