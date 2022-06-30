@@ -42,6 +42,29 @@ REDIS_HOST=redis
 REDIS_PASSWORD=null
 REDIS_PORT=6379
 ```
+### Subindo os containers do projeto
+
+```sh
+./vendor/bin/sail up -d
+```
+
+Gerar a key do projeto Laravel
+```sh
+./vendor/bin/sail artisan key:generate
+```
+
+Rode as migrations abaixo para criar a estrutura do banco
+```sh
+./vendor/bin/sail artisan migrate
+```
+
+Rode os comandos abaixo para popular as tabelas do banco:
+```sh
+./vendor/bin/sail artisan db:seed --class=UserSeeder
+./vendor/bin/sail artisan db:seed --class=ChannelSeeder
+./vendor/bin/sail artisan db:seed --class=WatchedTimeSeeder
+```
+
 ### Acessando o banco 
 Para acessar o banco utilizando algum gerenciador, utilize a configuração abaixo:
 ```sh
@@ -56,28 +79,7 @@ User: sail
 ```sh
 Password: password
 ```
-### Subindo os containers do projeto
 
-```sh
-vendor/bin/sail up -d
-```
-
-Gerar a key do projeto Laravel
-```sh
-vendor/bin/sail artisan key:generate
-```
-
-Rode as migrations abaixo para criar a estrutura do banco
-```sh
-vendor/bin/sail artisan migrate
-```
-
-Rode os comandos abaixo para popular as tabelas do banco:
-```sh
-vendor/bin/sail artisan db:seed --class=UserSeeder
-vendor/bin/sail artisan db:seed --class=ChannelSeeder
-vendor/bin/sail artisan db:seed --class=WatchedTimeSeeder
-```
 ### Acesse o Ranking Agrupado por canais pelo endpoint:
 [http://localhost:8888/channels-ranking](http://localhost:8888/channels-ranking)
 
