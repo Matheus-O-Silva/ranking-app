@@ -78,5 +78,10 @@ vendor/bin/sail artisan db:seed --class=UserSeeder
 vendor/bin/sail artisan db:seed --class=ChannelSeeder
 vendor/bin/sail artisan db:seed --class=WatchedTimeSeeder
 ```
-### Acesse o ranking pela endpoint abaixo:
-[http://localhost:8888/ranking](http://localhost:8888/ranking)
+### Acesse o Ranking Agrupado por canais pelo endpoint:
+[http://localhost:8888/channels-ranking](http://localhost:8888/channels-ranking)
+
+### Acesse o ornado por Usuários pelo endpoint:
+[http://localhost:8888/users-ranking](http://localhost:8888/users-ranking)
+
+### A posição no Ranking de cada usuário está no campo 'place' dos objetos retornados
