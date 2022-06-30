@@ -8,7 +8,7 @@ class WatchedTimeService
     private $watchedTimeRepository;
 
     /**
-     * construct
+     * Construct
      *
      * @param \App\Repositories\WatchedTimeRepository $watchedTimeRepository 
      */
@@ -17,8 +17,12 @@ class WatchedTimeService
         return $this->watchedTimeRepository = $watchedTimeRepository;
     }
 
-
-    public function getRankingByUsers()
+    /**
+     * retorna lista de usuários ordenada do maior tempo assistido para o menor
+     * 
+     * @return Object
+     */
+    public function getRankingByUsers() : Object
     {
         $watchedTimes = $this->watchedTimeRepository->selectRelationWithUsersAndChannels();
         

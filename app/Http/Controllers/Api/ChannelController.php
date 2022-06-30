@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Services\ChannelService;
 
 /**
- * Exibe ranking de tempo assistido por Canais
+ * Exibe ranking de tempo assistido por usuários agrupado por Canais
  *
  * @throws Exception $e
  * @throws \Illuminate\Database\QueryException $e
@@ -29,6 +29,13 @@ class ChannelController extends Controller
         $this->channelService = $channelService;
     }
 
+    /**
+     * Exibe ranking de minutos assistidos de Usuários agrupados por Canal
+     *
+     * @throws Exception $e
+     * @throws \Illuminate\Database\QueryException $e
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index() : JsonResponse
     {   
         try {

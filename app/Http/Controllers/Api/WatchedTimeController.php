@@ -7,13 +7,6 @@ use \Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Services\WatchedTimeService;
 
-/**
- * Exibe ranking de tempo assistido por Canais
- *
- * @throws Exception $e
- * @throws \Illuminate\Database\QueryException $e
- * @return \Illuminate\Http\JsonResponse
- */
 class WatchedTimeController extends Controller
 {
 
