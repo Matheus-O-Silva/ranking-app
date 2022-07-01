@@ -7,22 +7,31 @@
 ## Subir a API
 Para testar o projeto, siga os passos descritos abaixo
 
-### Passo a passo
-Clone Repositório
+### Clone do Repositório
 ```sh
 git clone https://github.com/Matheus-O-Silva/ranking-app.git
 ```
 
+acesse o diretório ranking-app
 ```sh
 cd ranking-app
 ```
+### Instale as dependências com o comando:
+```sh
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php81-composer:latest \
+    composer install --ignore-platform-reqs
+```
 
-Crie o Arquivo .env
+### Crie o Arquivo .env
 ```sh
 cp .env.example .env
 ```
 
-Atualize as variáveis de ambiente do arquivo .env
+### Atualize as variáveis de ambiente do arquivo .env
 ```dosini
 APP_NAME=Laravel
 APP_URL=http://localhost:8888
@@ -53,12 +62,12 @@ Gerar a key do projeto Laravel
 ./vendor/bin/sail artisan key:generate
 ```
 
-Rode as migrations abaixo para criar a estrutura do banco
+### Rode as migrations abaixo para criar a estrutura do banco
 ```sh
 ./vendor/bin/sail artisan migrate
 ```
 
-Rode os comandos abaixo para popular as tabelas do banco:
+### Rode os comandos abaixo para popular as tabelas do banco:
 ```sh
 ./vendor/bin/sail artisan db:seed --class=UserSeeder
 ./vendor/bin/sail artisan db:seed --class=ChannelSeeder
